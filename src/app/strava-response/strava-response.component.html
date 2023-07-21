@@ -1,0 +1,28 @@
+<div> {{ activities | json }}</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Distance (meters)</th>
+      <th>Duration</th>
+      <th>Avg Speed (m/s)</th>
+      <th>Max Speed (m/s)</th>
+      <th>Avg Heart Rate (bpm)</th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+    <tr *ngFor="let activity of activities">
+      <td>{{ activity.name }}</td>
+      <td>{{ activity.start_date_local }}</td>
+      <td>{{ activity.distance }}</td>
+      <td>{{ activity.moving_time  }}</td>
+      <td>{{ activity.average_speed }}</td>
+      <td>{{ activity.max_speed }}</td>
+      <td>{{ activity.average_heartrate }}</td>
+    </tr>
+  </tbody>
+</table>

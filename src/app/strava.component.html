@@ -1,0 +1,25 @@
+
+<button (click)="loginWithStrava()">Login with Strava</button>
+<div style="height: 600px; overflow-y: auto;">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col" *ngFor="let header of filteredData[0]">{{ header }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let row of filteredData.slice(1).reverse(); let i = index">
+        <tr>
+          <td *ngFor="let item of row | formatValues">
+            {{ item }}
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+{{filteredData[1][1]}}
