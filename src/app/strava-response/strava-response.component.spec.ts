@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { StravaResponseComponent } from './strava-response.component';
+import {StravaResponseComponent} from './strava-response.component';
 
 describe('StravaResponseComponent', () => {
   let component: StravaResponseComponent;

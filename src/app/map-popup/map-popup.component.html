@@ -1,0 +1,43 @@
+<h6 mat-dialog-title class="text-center">{{detailedActivity.name}}</h6>
+
+<div mat-dialog-content>
+  <mat-tab-group>
+    <mat-tab label="Pace">
+      <table class="table table-striped" id="table-wrapper">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Lap</th>
+          <th scope="col">Time</th>
+          <th scope="col">Avg HR</th>
+          <th scope="col">Elevation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let split of detailedActivity.splits_metric ; let last = last">
+          <td *ngIf="!last">{{ split.split  }}km</td>
+          <td *ngIf="last">{{ split.distance / 1000 | distance:2}}km</td>
+          <td>{{ split.elapsed_time  | time }}</td>
+          <td>{{ split.average_heartrate | number:'1.0-0'}} bpm</td>
+          <td>{{ split.elevation_difference }}</td>
+        </tbody>
+      </table>
+      <mat-dialog-actions align="center">
+        <button mat-button mat-dialog-close class="btn btn-dark">Close Activity</button>
+      </mat-dialog-actions>
+    </mat-tab>
+
+    <mat-tab label="Map">
+      <google-map
+        [width]="width"
+        [height]="'300px'"
+        [center]="center"
+        [zoom]="zoom"
+        [options]="options">
+        <map-polyline
+          [path]="path"
+        ></map-polyline>
+
+      </google-map>
+    </mat-tab>
+  </mat-tab-group>
+</div>

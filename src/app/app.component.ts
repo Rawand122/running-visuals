@@ -1,8 +1,5 @@
-import { Component,OnInit } from '@angular/core';
-import {AuthService} from "./auth.service";
-import {Observable} from "rxjs";
-import {OAuthService} from "angular-oauth2-oidc";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {Component, OnInit} from '@angular/core';
+import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',
@@ -11,11 +8,12 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 })
 export class AppComponent implements OnInit {
   activities: any;
-constructor(private http:HttpClientModule) {
 
-}
+  constructor(private http: HttpClientModule) {
+
+  }
+
   ngOnInit() {
-
   }
 
 }

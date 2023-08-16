@@ -1,5 +1,6 @@
-import { Activity } from './activity.model';
-import { Athlete } from './athlete.model';
+import {Activity} from './activity.model';
+import {Athlete} from "./strava.model";
+
 
 export interface Segment {
   id: number;

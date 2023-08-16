@@ -38,25 +38,73 @@ export interface Athlete {
 }
 
 
-  export interface AthleteStatTotals {
-      distance: number;
-      achievement_count: number;
-      count: number;
-      elapsed_time: number;
-      elevation_gain: number;
-      moving_time: number;
-  }
-
-  export interface AthleteStats {
-      recent_run_totals: AthleteStatTotals;
-      all_run_totals: string;
-      recent_swim_totals: AthleteStatTotals;
-      biggest_ride_distance: number;
-      ytd_swim_totals: string;
-      all_swim_totals: string;
-      recent_ride_totals: AthleteStatTotals;
-      biggest_climb_elevation_gain: number;
-      ytd_ride_totals: string;
-      all_ride_totals: string;
-      ytd_run_totals: string;
-  }
+export interface AthleteData {
+  biggest_ride_distance: number;
+  biggest_climb_elevation_gain: number;
+  recent_ride_totals: {
+    count: number;
+    distance: number;
+    moving_time: number;
+    elapsed_time: number;
+    elevation_gain: number;
+    achievement_count: number;
+  };
+  all_ride_totals: {
+    count: number;
+    distance: number;
+    moving_time: number;
+    elapsed_time: number;
+    elevation_gain: number;
+  };
+  recent_run_totals: {
+    count: number;
+    distance: number;
+    moving_time: number;
+    elapsed_time: number;
+    elevation_gain: number;
+    achievement_count: number;
+  };
+  all_run_totals: {
+    count: number;
+    distance: number;
+    moving_time: number;
+    elapsed_time: number;
+    elevation_gain: number;
+  };
+  recent_swim_totals: {
+    count: number;
+    distance: number;
+    moving_time: number;
+    elapsed_time: number;
+    elevation_gain: number;
+    achievement_count: number;
+  };
+  all_swim_totals: {
+    count: number;
+    distance: number;
+    moving_time: number;
+    elapsed_time: number;
+    elevation_gain: number;
+  };
+  ytd_ride_totals: {
+    count: number;
+    distance: number;
+    moving_time: number;
+    elapsed_time: number;
+    elevation_gain: number;
+  };
+  ytd_run_totals: {
+    count: number;
+    distance: number;
+    moving_time: number;
+    elapsed_time: number;
+    elevation_gain: number;
+  };
+  ytd_swim_totals: {
+    count: number;
+    distance: number;
+    moving_time: number;
+    elapsed_time: number;
+    elevation_gain: number;
+  };
+}

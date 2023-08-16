@@ -1,28 +1,24 @@
-<div> {{ activities | json }}</div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Date</th>
-      <th>Distance (meters)</th>
-      <th>Duration</th>
-      <th>Avg Speed (m/s)</th>
-      <th>Max Speed (m/s)</th>
-      <th>Avg Heart Rate (bpm)</th>
-    </tr>
-  </thead>
-  <tbody>
-
-
-    <tr *ngFor="let activity of activities">
-      <td>{{ activity.name }}</td>
-      <td>{{ activity.start_date_local }}</td>
-      <td>{{ activity.distance }}</td>
-      <td>{{ activity.moving_time  }}</td>
-      <td>{{ activity.average_speed }}</td>
-      <td>{{ activity.max_speed }}</td>
-      <td>{{ activity.average_heartrate }}</td>
-    </tr>
-  </tbody>
-</table>
+<h3 class="display-3 text-center" id="pageTitle">Strava Data</h3>
+<div class="mobile-table text-center">
+  <div class="table-row" *ngFor="let activity of activities">
+    <div class="card text-bg-light mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ activity.name }}</h5>
+        <div class="card-text" id="dateField">{{ activity.start_date_local | date }}</div>
+        <div class="card-text" id="additionalInfoField">
+          Distance: {{ activity.distance / 1000 | distance:2 }}km
+          Duration: {{ activity.elapsed_time | time }}
+          Avg Pace: {{
+          Math.floor((activity.elapsed_time / 60) / (activity.distance / 1000)) // Minutes
+           }}:{{
+          Math.round(((activity.elapsed_time / 60) / (activity.distance / 1000)) % 1 * 60).toString().padStart(2, '0') // Seconds
+               }} mins/km
+          <div *ngIf="activity.average_heartrate" class="card-text">Avg
+            HR: {{ activity.average_heartrate | number:'1.0-0' }}bpm
+          </div>
+        </div>
+        <button (click)="getDetailedActivity(activity.id)" class="btn btn-dark">Additional Details</button>
+      </div>
+    </div>
+  </div>
+</div>
